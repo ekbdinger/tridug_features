@@ -2,6 +2,7 @@ name = TriDUG Blog
 description = A blog for my TriDUG presentation
 core = 7.x
 package = TriDUG
+php = 5.2.4
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = field_sql_storage

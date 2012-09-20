@@ -1,28 +1,28 @@
 <?php
 /**
  * @file
- * tridug_blog.views_default.inc
+ * tridug_news.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function tridug_blog_views_default_views() {
+function tridug_news_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'tridug_blog';
+  $view->name = 'tridug_news';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'tridug_blog';
+  $view->human_name = 'tridug_news';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'TriDUG Blog';
+  $handler->display->display_options['title'] = 'News';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -32,10 +32,6 @@ function tridug_blog_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -60,20 +56,19 @@ function tridug_blog_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'tridug_blog' => 'tridug_blog',
+    'news' => 'news',
   );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'blog';
+  $handler->display->display_options['path'] = 'news';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Blog';
+  $handler->display->display_options['menu']['title'] = 'News';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['tab_options']['weight'] = '0';
-  $export['tridug_blog'] = $view;
+  $export['tridug_news'] = $view;
 
   return $export;
 }
